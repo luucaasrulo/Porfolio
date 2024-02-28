@@ -1,0 +1,94 @@
+---
+import PythonIcon from "../Icons/PythonIcon.astro";
+import DjangoIcon from "../Icons/DJangoIcon.astro";
+import JavaScriptIcon from "../Icons/JavaScriptIcon.astro";
+import HTMLIcon from "../Icons/HTMLIcon.astro";
+import TailwindIcon from "../Icons/TailwindCSSIcon.astro";
+import CSSIcon from "../Icons/CSSIcon.astro";
+import MySQLIcon from "../Icons/MySQLIcon.astro";
+import JavaIcon from "../Icons/JavaIcon.astro";
+import BootstrapIcon from "../Icons/BootstrapIcon.astro";
+
+const TAGS = {
+  PYTHON: {
+    name: "Python",
+    class: "bg-black text-white",
+    icon: PythonIcon,
+  },
+  DJANGO: {
+    name: "Django",
+    class: "bg-black text-white",
+    icon: DjangoIcon,
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    class: "bg-black text-white",
+    icon: JavaScriptIcon,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-black text-white",
+    icon: HTMLIcon,
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-black text-white",
+    icon: MySQLIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-black text-white",
+    icon: CSSIcon,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-black text-white",
+    icon: BootstrapIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Blog de Herramientas Informaticas",
+    description: "",
+    link: "https://herramientasinformaticas.pythonanywhere.com/",
+    githud: "https://github.com/luucaasrulo/Proyecto-Final-Comicion-4-Grupo-4",
+    image: "/projects/HI.webp",
+    tags: [
+      TAGS.PYTHON,
+      TAGS.DJANGO,
+      TAGS.JAVASCRIPT,
+      TAGS.DJANGO,
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.BOOTSTRAP,
+    ],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2x font-semibold text-yellow-600 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-8" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/15"
+        src={image}
+        alt={`Captura de pantalla del Proyecto ${title}`}
+      />
+    </article>
+  ))
+}
