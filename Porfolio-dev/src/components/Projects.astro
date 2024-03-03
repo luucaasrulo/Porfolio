@@ -8,41 +8,37 @@ import CSSIcon from "../Icons/CSSIcon.astro";
 import MySQLIcon from "../Icons/MySQLIcon.astro";
 import JavaIcon from "../Icons/JavaIcon.astro";
 import BootstrapIcon from "../Icons/BootstrapIcon.astro";
+import GitHubIcon from "../Icons/GitHubIcon.astro";
+import LinkButton from "./LinkButton.astro";
+import Link from "../Icons/Link.astro";
 
 const TAGS = {
   PYTHON: {
     name: "Python",
-    class: "bg-black text-white",
     icon: PythonIcon,
   },
   DJANGO: {
     name: "Django",
-    class: "bg-black text-white",
     icon: DjangoIcon,
   },
   JAVASCRIPT: {
     name: "Javascript",
-    class: "bg-black text-white",
     icon: JavaScriptIcon,
   },
   HTML: {
     name: "HTML",
-    class: "bg-black text-white",
     icon: HTMLIcon,
   },
   MYSQL: {
     name: "MySQL",
-    class: "bg-black text-white",
     icon: MySQLIcon,
   },
   CSS: {
     name: "CSS",
-    class: "bg-black text-white",
     icon: CSSIcon,
   },
   BOOTSTRAP: {
     name: "Bootstrap",
-    class: "bg-black text-white",
     icon: BootstrapIcon,
   },
 };
@@ -50,15 +46,15 @@ const TAGS = {
 const PROJECTS = [
   {
     title: "Blog de Herramientas Informaticas",
-    description: "",
+    description: `Es tito Web es un blog, que contiene las mas populares herramientas que se utilizan en el desarrollo web, desde editores de texto, lenguajes de programación, framework y versionadores. Fue desarrollado en el Informatorio de la Provincia del Chaco, por el grupo de desarrollo full stack N° 4, Comisión 4, Cohorte 2023.`,
     link: "https://herramientasinformaticas.pythonanywhere.com/",
-    githud: "https://github.com/luucaasrulo/Proyecto-Final-Comicion-4-Grupo-4",
+    github: "https://github.com/luucaasrulo/Proyecto-Final-Comicion-4-Grupo-4",
     image: "/projects/HI.webp",
     tags: [
       TAGS.PYTHON,
       TAGS.DJANGO,
       TAGS.JAVASCRIPT,
-      TAGS.DJANGO,
+      TAGS.MYSQL,
       TAGS.HTML,
       TAGS.CSS,
       TAGS.BOOTSTRAP,
@@ -67,28 +63,55 @@ const PROJECTS = [
 ];
 ---
 
-{
-  PROJECTS.map(({ image, title, description, tags }) => (
-    <article>
-      <h3 class="text-2x font-semibold text-yellow-600 mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-xs${tag.class} py-1 px-2`}
-            >
-              <tag.icon class="size-8" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/15"
-        src={image}
-        alt={`Captura de pantalla del Proyecto ${title}`}
-      />
-    </article>
-  ))
-}
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold  text-yellow-600 dark:text-yellow-500">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-wrap mb-2 gap-x-2 gap-y-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs bg-gray-100 dark:bg-gray-800 border border-gray-300  dark:border-gray-600 py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-black dark:text-gray-100">{description}</div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHubIcon class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

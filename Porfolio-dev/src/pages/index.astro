@@ -1,66 +1,51 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
+import Presentation from "../components/Presentation.astro";
 import SectionContainer from "../components/SectionContainer.astro";
-import LinkedInIcon from "../Icons/LinkedInIcon.astro";
-import SocialPill from "../Icons/SocialPill.astro";
-import MailIcon from "../Icons/MailIcon.astro";
-import GitHudIcon from "../Icons/GitHudIcon.astro";
 import Projects from "../components/Projects.astro";
 import ProjectsIcon from "../Icons/ProjectsIcon.astro";
+import ProfileCheck from "../Icons/ProfileCheck.astro";
+// import Experience from "@/components/Experience.astro";
+import AboutMe from "../components/AboutMe.astro";
 ---
 
 <Layout
   title="Porfolio de Lucas Villalva - Desarrollador y Programador Web"
-  description="Contrata a Villalva Lucas para desarrollar y programas tus aplicaciones web"
+  description="@"
 >
   <main class="px-4">
-    <SectionContainer id="top" class="py-44 pb-32">
-      <img
-        class="rounded-full size-12 mb-4"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdTdhxaTaONvmEEDZiJs6b8fwXC8-i8V_Wnw&usqp=CAU"
-        alt="myPhoto"
-      />
-      <h1
-        class="text-white text-3xl lg:text-5xl md:text-4xl font-bold flex flex-row text-wrap-balance gap-x-4 pb-6 lg:pb-10"
-      >
-        Hi!, I'm Lucas Villalva <a
-          href="https://www.linkedin.com/in/lucas-villalva-515b43287/"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
-        >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
-      </h1>
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        <span>Desarrollador Web.</span><span class="opacity-70">
-          De Argentina</span
-        >
-      </h2>
-      <nav class="flex gap-4 mt-8 flex-wrap">
-        <SocialPill
-          href="https://www.linkedin.com/in/lucas-villalva-515b43287/"
-        >
-          <LinkedInIcon class="size-4 md:size-6" />
-          Linkedin
-        </SocialPill>
-        <SocialPill href="https://github.com/luucaasrulo">
-          <GitHudIcon class="size-4 mdsize-6" />
-          GitHud
-        </SocialPill>
-        <SocialPill href="mailto:lucasrulo1997@gmail.com">
-          <MailIcon class="size-4 md:size-6" />
-          lucasrulo1997@gmail.com
-        </SocialPill>
-      </nav>
+    <SectionContainer id="inicio" class="pt-24 pb-16 md:py-36">
+      <Presentation />
     </SectionContainer>
-    <SectionContainer id="projects">
-      <h2 class="text-3xl font-semiblod mb-6 flex gap-x-3 items-center">
-        <ProjectsIcon class="size-4 md:size-6" />
+  </main>
+  <div class="space-y-80">
+    <SectionContainer class="pt-14" id="proyectos">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-yellow-600 dark:text-yellow-500"
+      >
+        <ProjectsIcon class="size-7" />
         Proyectos
       </h2>
       <Projects />
     </SectionContainer>
-  </main>
+    <!-- <SectionContainer id="experiencia">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-yellow-600 dark:text-yellow-500"
+      >
+        <Briefcase class="size-8" />
+        Experiencia laboral
+      </h2>
+      <Experience />
+    </SectionContainer> -->
+
+    <SectionContainer id="sobre-mi">
+      <h2
+        class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-yellow-600 dark:text-yellow-500"
+      >
+        <ProfileCheck class="size-8" />
+        Sobre mí
+      </h2>
+      <AboutMe />
+    </SectionContainer>
+  </div>
 </Layout>
