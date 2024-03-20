@@ -1,16 +1,21 @@
 ---
-import PythonIcon from "../Icons/PythonIcon.astro";
-import DjangoIcon from "../Icons/DJangoIcon.astro";
-import JavaScriptIcon from "../Icons/JavaScriptIcon.astro";
-import HTMLIcon from "../Icons/HTMLIcon.astro";
-import TailwindIcon from "../Icons/TailwindCSSIcon.astro";
-import CSSIcon from "../Icons/CSSIcon.astro";
-import MySQLIcon from "../Icons/MySQLIcon.astro";
-import JavaIcon from "../Icons/JavaIcon.astro";
-import BootstrapIcon from "../Icons/BootstrapIcon.astro";
-import GitHubIcon from "../Icons/GitHubIcon.astro";
-import LinkButton from "./LinkButton.astro";
-import Link from "../Icons/Link.astro";
+import PythonIcon from "../Icons/PythonIcon.astro"
+import DjangoIcon from "../Icons/DJangoIcon.astro"
+import JavaScriptIcon from "../Icons/JavaScriptIcon.astro"
+import HTMLIcon from "../Icons/HTMLIcon.astro"
+import TailwindIcon from "../Icons/TailwindCSSIcon.astro"
+import CSSIcon from "../Icons/CSSIcon.astro"
+import MySQLIcon from "../Icons/MySQLIcon.astro"
+import JavaIcon from "../Icons/JavaIcon.astro"
+import BootstrapIcon from "../Icons/BootstrapIcon.astro"
+import GitHubIcon from "../Icons/GitHubIcon.astro"
+import LinkButton from "./LinkButton.astro"
+import Link from "../Icons/Link.astro"
+import AstroIcon from "../Icons/AstroIcon.astro"
+import TailwindCSSIcon from "../Icons/TailwindCSSIcon.astro"
+import SveltIcon from "../Icons/SveltIcon.astro"
+import ReactIcon from "../Icons/ReactIcon.astro"
+import TypeScriptIcon from "../Icons/TypeScriptIcon.astro"
 
 const TAGS = {
   PYTHON: {
@@ -41,7 +46,27 @@ const TAGS = {
     name: "Bootstrap",
     icon: BootstrapIcon,
   },
-};
+  ASTRO: {
+    name: "Astro",
+    icon: AstroIcon,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    icon: TailwindCSSIcon,
+  },
+  SVELT: {
+    name: "Svelt",
+    icon: SveltIcon,
+  },
+  REACT: {
+    name: "React",
+    icon: ReactIcon,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    icon: TypeScriptIcon,
+  },
+}
 
 const PROJECTS = [
   {
@@ -60,7 +85,24 @@ const PROJECTS = [
       TAGS.BOOTSTRAP,
     ],
   },
-];
+  {
+    title: "Clon Spotify",
+    description: `Este proyecto es un clon de Spotify, el cual contiene frontend y Listas de musica las cuales se pueden reproducir.`,
+    link: "/",
+    github: "https://github.com/luucaasrulo/Clon-Spotify",
+    image: "/projects/ClonSpotify.webp",
+    tags: [
+      TAGS.JAVASCRIPT,
+      TAGS.REACT,
+      TAGS.ASTRO,
+      TAGS.TAILWIND,
+      TAGS.SVELT,
+      TAGS.HTML,
+      TAGS.CSS,
+      TAGS.TYPESCRIPT,
+    ],
+  },
+]
 ---
 
 <div class="flex flex-col gap-y-16">
@@ -77,9 +119,7 @@ const PROJECTS = [
         </div>
 
         <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold  text-yellow-600 dark:text-yellow-500">
-            {title}
-          </h3>
+          <h3 class="text-2xl font-bold  text-yellow-600 dark:text-yellow-500">{title}</h3>
           <div class="flex flex-wrap mt-2">
             <ul class="flex flex-wrap mb-2 gap-x-2 gap-y-2">
               {tags.map((tag) => (
